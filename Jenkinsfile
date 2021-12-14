@@ -3,7 +3,13 @@ node('mvn_3.8.4') {
         git 'https://github.com/kattasaimuralikrishna/java11-examples.git'
     }
     stage('build'){
-        sh 'mvn clean package'
+        sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'
+        sh 
+        ''''
+          echo PATH=${PATH}
+            echo M2_HOME=${M2_HOME}
+            
+        ''''
     }
     stage('archive artifacts') {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
