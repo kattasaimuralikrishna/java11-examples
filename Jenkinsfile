@@ -4,10 +4,10 @@ node('mvn_3.8.4') {
     }
     stage('build'){
         sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'
-        sh ''''
+        sh '''
           echo PATH=${PATH}
             echo M2_HOME=${M2_HOME}
-      ''''
+      '''
     }
     stage('archive artifacts') {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
